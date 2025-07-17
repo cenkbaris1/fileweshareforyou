@@ -1,0 +1,16 @@
+name: Deploy to IPFS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install IPFS-Deploy
+      run: npm install -g ipfs-deploy
+    - name: Deploy to IPFS
+      run: ipfs-deploy --silent
